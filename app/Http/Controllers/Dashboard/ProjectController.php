@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -17,7 +18,8 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
-        return view('pages.dashboard.index', compact('projects'));
+        $types = Type::all();
+        return view('pages.dashboard.index', compact('projects','types'));
     }
 
     /**
@@ -25,7 +27,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('pages.dashboard.create');
+        $types = Type::all();
+        return view('pages.dashboard.create', compact('types'));
     }
 
     /**
@@ -59,7 +62,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('pages.dashboard.edit', compact('project'));
+        $types = Type::all();
+        return view('pages.dashboard.edit', compact('project', 'types'));
     }
 
     /**
@@ -78,7 +82,7 @@ class ProjectController extends Controller
 
             $img_path = Storage::disk('public')->put('projects_images', $request->cover);
 
-            $validated_data['cover'] = $img_path; 
+            $validated_data['cover'] = $img_path;
         }
 
         $project->update($validated_data);

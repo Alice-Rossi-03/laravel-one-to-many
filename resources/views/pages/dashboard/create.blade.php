@@ -35,6 +35,28 @@
                 @enderror
             </div>
 
+            <div class="mb-3">
+
+                <label for="type_id" class="form-label">Insert The Type</label>
+                <select name="type_id" id="type_id" class="form-select form-select-lg @error('type_id') is-invalid @enderror">
+
+                    <option value="">Select One</option>
+
+                    @foreach ( $types as $type)
+                    <option
+                        value="{{$type->id}}"
+                        {{$type->id == old('type_id') ? 'selected' : ''}}>
+                        {{$type->name}}
+                    </option>
+                    @endforeach
+                </select>
+                @error('type_id')
+                    <div class="alert alert-danger mt-1">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
             <button type="submit" class="btn btn-primary d-block ms-auto">ADD</button>
         </form>
 
