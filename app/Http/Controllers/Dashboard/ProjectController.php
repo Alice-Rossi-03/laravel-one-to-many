@@ -19,7 +19,7 @@ class ProjectController extends Controller
     {
         $projects = Project::all();
         $types = Type::all();
-        return view('pages.dashboard.index', compact('projects','types'));
+        return view('pages.dashboard.projects.index', compact('projects','types'));
     }
 
     /**
@@ -28,7 +28,7 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('pages.dashboard.create', compact('types'));
+        return view('pages.dashboard.projects.create', compact('types'));
     }
 
     /**
@@ -54,7 +54,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('pages.dashboard.show', compact('project'));
+        return view('pages.dashboard.projects.show', compact('project'));
     }
 
     /**
@@ -63,7 +63,7 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
-        return view('pages.dashboard.edit', compact('project', 'types'));
+        return view('pages.dashboard.projects.edit', compact('project', 'types'));
     }
 
     /**

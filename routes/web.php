@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Dashboard\ProjectController;
+use App\Http\Controllers\Dashboard\TypeController;
+// use App\Http\Controllers\TypeController;
+use App\Models\Type;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +36,10 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(function(){
     Route::resource('projects', ProjectController::class)->parameters(['projects'=>'project:slug']);
+});
+
+Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(function(){
+    Route::resource('types', TypeController::class)->parameters(['types'=>'type:slug']);
 });
 
 require __DIR__.'/auth.php';

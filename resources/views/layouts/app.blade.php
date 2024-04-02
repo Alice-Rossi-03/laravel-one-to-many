@@ -49,6 +49,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('dashboard.projects.index') }}">Projects</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('dashboard.types.index') }}">Types</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
