@@ -22,7 +22,7 @@
             <tr>
                 <th>{{$project->id}}</th>
                 <td><a href="{{route('dashboard.projects.show', $project->slug)}}">{{$project->title}}</a></td>
-                <td>{{$project->type_id}}</td>
+                <td>{{$project->type ? $project->type->name : '-' }}</td>
                 <td>{{$project->cover ? 'Yes':'No'}}</td>
                 <td>{{$project->slug}}</td>
               </tr>

@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <h1 class="mt-2 fw-bold">{{ $project->title }}</h1>
+        <h3 class="mt-2">{{$project->type ? $project->type->name : ''}}</h3>
 
         <div class="d-flex gap-3">
             @if ($project->cover)
